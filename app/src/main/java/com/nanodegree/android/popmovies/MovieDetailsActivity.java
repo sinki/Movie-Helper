@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+/*
+** Activity to show details of a movie
+ */
 public class MovieDetailsActivity extends AppCompatActivity {
 
   private String LOG_TAG = this.getClass().getSimpleName();

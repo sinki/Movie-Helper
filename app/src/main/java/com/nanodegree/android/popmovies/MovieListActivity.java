@@ -22,6 +22,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+** Launcher activity to present grid view of movies. Default sort type is by Popularity.
+ */
 public class MovieListActivity extends AppCompatActivity {
 
   private int sortType = MovieSortTypeEnum.SORT_BY_POPULARITY.getId();

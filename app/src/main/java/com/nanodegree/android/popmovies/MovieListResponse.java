@@ -2,6 +2,9 @@ package com.nanodegree.android.popmovies;
 
 import java.util.List;
 
+/**
+ * POJO for GSON conversion of API response
+ */
 public class MovieListResponse {
   private int page;
   private List<Movie> results;
