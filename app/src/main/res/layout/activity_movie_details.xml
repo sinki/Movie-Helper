@@ -28,74 +28,78 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="5dp">
+        android:layout_height="wrap_content">
 
       <LinearLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:orientation="horizontal"
-          android:padding="10dp"
-          android:weightSum="2">
-
-        <ImageView
-            android:id="@+id/movie_thumbnail"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:contentDescription="@string/movie_image"/>
+          android:orientation="vertical"
+          android:padding="5dp">
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:padding="5dp">
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="2">
 
-          <TextView
-              android:layout_width="match_parent"
+          <ImageView
+              android:id="@+id/movie_thumbnail"
+              android:layout_width="0dp"
               android:layout_height="wrap_content"
-              android:id="@+id/movie_title"
-              android:padding="5dp"
-              android:textStyle="bold"
-              android:textSize="18sp"
-              />
+              android:layout_weight="1"
+              android:contentDescription="@string/movie_image"/>
 
-          <TextView
-              android:layout_width="match_parent"
+          <LinearLayout
+              android:layout_width="0dp"
               android:layout_height="wrap_content"
-              android:id="@+id/movie_release_date"
-              android:layout_marginTop="2dp"
-              android:padding="5dp"/>
+              android:layout_weight="1"
+              android:orientation="vertical"
+              android:padding="5dp">
 
-          <TextView
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:id="@+id/movie_rating"
-              android:layout_marginTop="2dp"
-              android:padding="5dp"/>
+            <TextView
+                android:id="@+id/movie_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/movie_release_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/movie_rating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:padding="5dp"/>
+
+          </LinearLayout>
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/movie_overview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:padding="10dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey"/>
+
       </LinearLayout>
 
-      <TextView
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:padding="10dp"
-          android:gravity="start"
-          android:id="@+id/movie_overview"/>
-
-      <View
-          android:layout_width="match_parent"
-          android:layout_height="1dp"
-          android:background="@color/grey"/>
-
-    </LinearLayout>
-
-
+    </ScrollView>
   </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

@@ -1,6 +1,8 @@
 package com.nanodegree.android.popmovies;
 
+import android.content.Context;
 import android.content.res.Configuration;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,6 +12,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -39,8 +42,12 @@ public class MovieListActivity extends AppCompatActivity {
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
     movieGridView = (GridView) findViewById(R.id.movie_grid);
-    new GetMovieListTask().execute(getApiUrlForList());
-
+    ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+    if(cm.getActiveNetworkInfo() == null){
+      Toast.makeText(this, "No network found. Kindly connect to the internet first to use this app!", Toast.LENGTH_SHORT).show();
+    } else {
+      new GetMovieListTask().execute(getApiUrlForList());
+    }
     int orientation = getResources().getConfiguration().orientation;
     setGridColumnsBasedOnOrientation(orientation);
   }
@@ -152,17 +159,19 @@ public class MovieListActivity extends AppCompatActivity {
 
     @Override
     protected void onPostExecute(List<Movie> movieList) {
-      if (sortType == MovieSortTypeEnum.SORT_BY_RATING.getId()) {
-        topRatedMovieList = movieList;
-      } else if (sortType == MovieSortTypeEnum.SORT_BY_POPULARITY.getId()) {
-        popularMovieList = movieList;
-      }
-      if (movieImageAdapter == null) {
-        movieImageAdapter = new MovieImageAdapter(getApplicationContext(), movieList);
-        movieGridView.setAdapter(movieImageAdapter);
-      } else {
-        movieImageAdapter.setMovieList(movieList);
-        movieImageAdapter.notifyDataSetChanged();
+      if(movieList != null && !movieList.isEmpty()){
+        if (sortType == MovieSortTypeEnum.SORT_BY_RATING.getId()) {
+          topRatedMovieList = movieList;
+        } else if (sortType == MovieSortTypeEnum.SORT_BY_POPULARITY.getId()) {
+          popularMovieList = movieList;
+        }
+        if (movieImageAdapter == null) {
+          movieImageAdapter = new MovieImageAdapter(getApplicationContext(), movieList);
+          movieGridView.setAdapter(movieImageAdapter);
+        } else {
+          movieImageAdapter.setMovieList(movieList);
+          movieImageAdapter.notifyDataSetChanged();
+        }
       }
     }
 
