@@ -2,8 +2,14 @@
   <string name="app_name">Movie Helper</string>
   <string name="action_settings">Settings</string>
   <string name="movie_id_tag">Movie Id</string>
+  <string name="movie_poster_image_tag">Movie Poster Image</string>
   <string name="title_activity_movie_details">Movie Details</string>
   <string name="movie_image">movie image</string>
   <string name="menu_pop_sort">Sort by Popularity</string>
   <string name="menu_rat_sort">Sort by Rating</string>
+  <string name="menu_favorites">Favourites</string>
+  <string name="mark_favorite_button">Mark as Favorite</string>
+  <string name="movie_trailers_heading">Trailers:</string>
+  <string name="movie_reviews_heading">Reviews:</string>
+  <string name="movie_trailers_play">Trailers Play Button</string>
 </resources>

@@ -72,6 +72,7 @@ public class MovieImageAdapter extends BaseAdapter {
         Intent intent = new Intent(ctx, MovieDetailsActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("movie_obj", movieObj);
+        intent.putExtra("is_from_fvt", true);
         ctx.startActivity(intent);
       }
     });

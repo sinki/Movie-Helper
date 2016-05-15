@@ -1,6 +1,7 @@
 package com.nanodegree.android.popmovies;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.Uri;
@@ -15,6 +16,7 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,7 +25,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /*
 ** Launcher activity to present grid view of movies. Default sort type is by Popularity.
@@ -34,6 +38,7 @@ public class MovieListActivity extends AppCompatActivity {
   private List<Movie> popularMovieList, topRatedMovieList;
   private GridView movieGridView;
   private MovieImageAdapter movieImageAdapter;
+  private Gson gson = new Gson();
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -105,6 +110,27 @@ public class MovieListActivity extends AppCompatActivity {
         movieImageAdapter.setMovieList(popularMovieList);
         movieImageAdapter.notifyDataSetChanged();
       }
+    } else if(id == R.id.action_favorites){
+      //show list of all favorite movies
+      SharedPreferences preferences = this.getSharedPreferences("pop_mvs_fvt", 0);
+      Set<Movie> favoriteMovieList = new HashSet<Movie>();
+      String favoriteMovieListJson = preferences.getString("fvt_mv_lst", null);
+      if(favoriteMovieListJson != null){
+        favoriteMovieList.addAll((List<Movie>) gson.fromJson(favoriteMovieListJson,
+            new TypeToken<List<Movie>>() {
+            }.getType()));
+        List<Movie> movieList = new ArrayList<Movie>(favoriteMovieList);
+        if (movieImageAdapter == null) {
+          movieImageAdapter = new MovieImageAdapter(getApplicationContext(), movieList);
+          movieGridView.setAdapter(movieImageAdapter);
+        } else {
+          movieImageAdapter = new MovieImageAdapter(getApplicationContext(), movieList);
+          movieGridView.setAdapter(movieImageAdapter);
+          movieImageAdapter.setMovieList(movieList);
+          movieImageAdapter.notifyDataSetChanged();
+        }
+      }
+
     }
     return super.onOptionsItemSelected(item);
   }
