@@ -1,5 +1,6 @@
 package com.nanodegree.android.popmovies;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,7 +8,7 @@ import java.util.List;
  */
 public class MovieListResponse {
   private int page;
-  private List<Movie> results;
+  private ArrayList<Movie> results;
   private long totalResults;
   private long totalPages;
 
@@ -22,11 +23,11 @@ public class MovieListResponse {
     this.page = page;
   }
 
-  public List<Movie> getResults() {
+  public ArrayList<Movie> getResults() {
     return results;
   }
 
-  public void setResults(List<Movie> results) {
+  public void setResults(ArrayList<Movie> results) {
     this.results = results;
   }
 

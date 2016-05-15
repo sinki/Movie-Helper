@@ -66,16 +66,15 @@ public class MovieImageAdapter extends BaseAdapter {
     // load image in view with the help of Picasso
     Picasso.with(ctx).load(posterImageUrl).into(imageView);
     final Movie movieObj = movieList.get(i);
-    imageView.setOnClickListener(new View.OnClickListener() {
+   /* imageView.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
         Intent intent = new Intent(ctx, MovieDetailsActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("movie_obj", movieObj);
-        intent.putExtra("is_from_fvt", true);
         ctx.startActivity(intent);
       }
-    });
+    });*/
     return imageView;
   }
 }

@@ -12,4 +12,6 @@
   <string name="movie_trailers_heading">Trailers:</string>
   <string name="movie_reviews_heading">Reviews:</string>
   <string name="movie_trailers_play">Trailers Play Button</string>
+  <string name="title_popmovie_list">PopMovies</string>
+  <string name="title_popmovie_detail">PopMovie Detail</string>
 </resources>
