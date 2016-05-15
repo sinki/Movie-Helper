@@ -1,4 +1,6 @@
-package com.nanodegree.android.popmovies;
+package com.nanodegree.android.popmovies.domain;
+
+import com.nanodegree.android.popmovies.domain.MovieReview;
 
 import java.util.List;
 

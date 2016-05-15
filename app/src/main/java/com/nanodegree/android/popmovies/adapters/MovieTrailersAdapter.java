@@ -1,4 +1,4 @@
-package com.nanodegree.android.popmovies;
+package com.nanodegree.android.popmovies.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,9 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.nanodegree.android.popmovies.R;
+import com.nanodegree.android.popmovies.domain.MovieTrailer;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.nanodegree.android.popmovies;
+package com.nanodegree.android.popmovies.notUsedAnyMore;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -17,6 +17,12 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.nanodegree.android.popmovies.domain.Movie;
+import com.nanodegree.android.popmovies.adapters.MovieImageAdapter;
+import com.nanodegree.android.popmovies.domain.MovieListResponse;
+import com.nanodegree.android.popmovies.utils.MovieSortTypeEnum;
+import com.nanodegree.android.popmovies.R;
+import com.nanodegree.android.popmovies.utils.PopMovieAppConstants;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -69,9 +75,9 @@ public class MovieListActivity extends AppCompatActivity {
     String SORTING_PARAM = "sort_by";
     String API_KEY = "api_key";
     MovieSortTypeEnum movieSortTypeById = MovieSortTypeEnum.getMovieSortTypeById(sortType);
-    Uri.Builder builder = Uri.parse(PopMoviesAppConstants.MOVIE_DB_BASE_URL.concat("discover/movie")).buildUpon();
+    Uri.Builder builder = Uri.parse(PopMovieAppConstants.MOVIE_DB_BASE_URL.concat("discover/movie")).buildUpon();
     builder.appendQueryParameter(SORTING_PARAM, movieSortTypeById.getApiParamName());
-    builder.appendQueryParameter(API_KEY, PopMoviesAppConstants.MOVIE_DB_API_KEY);
+    builder.appendQueryParameter(API_KEY, PopMovieAppConstants.MOVIE_DB_API_KEY);
     if (sortType == MovieSortTypeEnum.SORT_BY_RATING.getId()) {
       //when getting movies sorted by rating, filter movies with considerable # of votes to get relevant data
       builder.appendQueryParameter("vote_count.gte", "100");

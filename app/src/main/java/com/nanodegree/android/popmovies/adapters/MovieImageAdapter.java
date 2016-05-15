@@ -1,7 +1,6 @@
-package com.nanodegree.android.popmovies;
+package com.nanodegree.android.popmovies.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import com.nanodegree.android.popmovies.domain.Movie;
+import com.nanodegree.android.popmovies.utils.ImageUrlHelper;
+import com.nanodegree.android.popmovies.utils.PopMovieAppConstants;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -62,7 +64,7 @@ public class MovieImageAdapter extends BaseAdapter {
       Log.i(LOG_TAG, "poster path null for " + movieList.get(i).getTitle());
       return imageView;
     }
-    String posterImageUrl = ImageUrlHelper.getPicassoImageUrl(posterPath, PopMoviesAppConstants.PICASSO_THUMBNAIL_SIZE_SMALL);
+    String posterImageUrl = ImageUrlHelper.getPicassoImageUrl(posterPath, PopMovieAppConstants.PICASSO_THUMBNAIL_SIZE_SMALL);
     // load image in view with the help of Picasso
     Picasso.with(ctx).load(posterImageUrl).into(imageView);
     final Movie movieObj = movieList.get(i);

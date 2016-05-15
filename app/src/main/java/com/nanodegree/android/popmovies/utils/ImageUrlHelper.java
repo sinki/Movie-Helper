@@ -1,4 +1,4 @@
-package com.nanodegree.android.popmovies;
+package com.nanodegree.android.popmovies.utils;
 
 public class ImageUrlHelper {
 
@@ -8,8 +8,9 @@ public class ImageUrlHelper {
     }
     if (size == null) {
       //set default size
-      size = PopMoviesAppConstants.PICASSO_THUMBNAIL_SIZE_SMALL;
+      size = PopMovieAppConstants.PICASSO_THUMBNAIL_SIZE_SMALL;
     }
-    return PopMoviesAppConstants.PICASSO_BASE_URL.concat(size).concat(posterPath);
+    return PopMovieAppConstants.PICASSO_BASE_URL.concat(size).concat(posterPath);
   }
+
 }

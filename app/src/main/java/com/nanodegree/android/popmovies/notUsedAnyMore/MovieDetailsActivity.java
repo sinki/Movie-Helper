@@ -1,4 +1,4 @@
-package com.nanodegree.android.popmovies;
+package com.nanodegree.android.popmovies.notUsedAnyMore;
 
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -19,6 +19,17 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.nanodegree.android.popmovies.domain.Movie;
+import com.nanodegree.android.popmovies.domain.MovieReview;
+import com.nanodegree.android.popmovies.domain.MovieReviewListResponse;
+import com.nanodegree.android.popmovies.adapters.MovieReviewsAdapter;
+import com.nanodegree.android.popmovies.domain.MovieTrailer;
+import com.nanodegree.android.popmovies.domain.MovieTrailerListResponse;
+import com.nanodegree.android.popmovies.adapters.MovieTrailersAdapter;
+import com.nanodegree.android.popmovies.R;
+import com.nanodegree.android.popmovies.utils.ImageUrlHelper;
+import com.nanodegree.android.popmovies.utils.PopMovieAppConstants
+    ;
 import com.squareup.picasso.Picasso;
 
 import java.io.BufferedReader;
@@ -116,7 +127,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
       //default
       moviePosterImage.setBackgroundResource(R.color.grey);
     } else {
-      String posterImageUrl = ImageUrlHelper.getPicassoImageUrl(posterPath, PopMoviesAppConstants.PICASSO_THUMBNAIL_SIZE_BIG);
+      String posterImageUrl = ImageUrlHelper.getPicassoImageUrl(posterPath, PopMovieAppConstants.PICASSO_THUMBNAIL_SIZE_BIG);
       Picasso.with(getApplicationContext()).load(posterImageUrl).into(moviePosterImage);
     }
     movieTitle.setText(movie.getOriginal_title());
@@ -233,10 +244,10 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
     private String getApiUrlForMovieDetails(Long movieId) {
       String API_KEY = "api_key";
-      Uri.Builder builder = Uri.parse(PopMoviesAppConstants.MOVIE_DB_BASE_URL
+      Uri.Builder builder = Uri.parse(PopMovieAppConstants.MOVIE_DB_BASE_URL
           .concat("movie/")
           .concat(movieId.toString())).buildUpon();
-      builder.appendQueryParameter(API_KEY, PopMoviesAppConstants.MOVIE_DB_API_KEY);
+      builder.appendQueryParameter(API_KEY, PopMovieAppConstants.MOVIE_DB_API_KEY);
       return builder.build().toString();
     }
   }
@@ -318,11 +329,11 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
     private String getApiUrlForTrailerList(Long movieId) {
       String API_KEY = "api_key";
-      Uri.Builder builder = Uri.parse(PopMoviesAppConstants.MOVIE_DB_BASE_URL
+      Uri.Builder builder = Uri.parse(PopMovieAppConstants.MOVIE_DB_BASE_URL
           .concat("movie/")
           .concat(movieId.toString())
           .concat("/videos")).buildUpon();
-      builder.appendQueryParameter(API_KEY, PopMoviesAppConstants.MOVIE_DB_API_KEY);
+      builder.appendQueryParameter(API_KEY, PopMovieAppConstants.MOVIE_DB_API_KEY);
       return builder.build().toString();
     }
   }
@@ -404,11 +415,11 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
     private String getApiUrlForReviewList(Long movieId) {
       String API_KEY = "api_key";
-      Uri.Builder builder = Uri.parse(PopMoviesAppConstants.MOVIE_DB_BASE_URL
+      Uri.Builder builder = Uri.parse(PopMovieAppConstants.MOVIE_DB_BASE_URL
           .concat("movie/")
           .concat(movieId.toString())
           .concat("/reviews")).buildUpon();
-      builder.appendQueryParameter(API_KEY, PopMoviesAppConstants.MOVIE_DB_API_KEY);
+      builder.appendQueryParameter(API_KEY, PopMovieAppConstants.MOVIE_DB_API_KEY);
       return builder.build().toString();
     }
   }

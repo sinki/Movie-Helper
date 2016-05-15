@@ -1,4 +1,4 @@
-package com.nanodegree.android.popmovies;
+package com.nanodegree.android.popmovies.utils;
 
 
 public enum MovieSortTypeEnum {

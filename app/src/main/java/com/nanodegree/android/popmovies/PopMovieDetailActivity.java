@@ -20,7 +20,7 @@ public class PopMovieDetailActivity extends AppCompatActivity {
 
     if (savedInstanceState == null) {
       Bundle arguments = new Bundle();
-      arguments.putParcelable("movie", getIntent().getData());
+      arguments.putParcelable("movie", getIntent().getParcelableExtra("movie"));
       PopMovieDetailFragment fragment = new PopMovieDetailFragment();
       fragment.setArguments(arguments);
       getSupportFragmentManager().beginTransaction()

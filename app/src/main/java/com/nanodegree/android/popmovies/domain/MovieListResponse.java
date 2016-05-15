@@ -1,7 +1,6 @@
-package com.nanodegree.android.popmovies;
+package com.nanodegree.android.popmovies.domain;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * POJO for GSON conversion of API response

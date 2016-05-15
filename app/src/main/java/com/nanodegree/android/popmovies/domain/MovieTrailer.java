@@ -1,4 +1,4 @@
-package com.nanodegree.android.popmovies;
+package com.nanodegree.android.popmovies.domain;
 
 /**
  * Created by sinki.agarwal on 4/24/2016.

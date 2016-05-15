@@ -1,4 +1,4 @@
-package com.nanodegree.android.popmovies;
+package com.nanodegree.android.popmovies.domain;
 
 import android.os.Parcel;
 import android.os.Parcelable;
